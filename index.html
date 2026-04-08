@@ -89,6 +89,7 @@ td {
     <a href="https://e.pcloud.link/publink/show?code=kZlUSGZogIdW99JJvQPTFdJ88KHebgN7Guy" target="_blank">Sterbebilder</a>
     <a href="https://e.pcloud.link/publink/show?code=kZkUSGZbkNeDdBh2gVy6AFnhtoJcVlfvRc7" target="_blank">Dokumente</a>
 </div>
+</div>
 
 <table>
     <thead>
@@ -106,29 +107,15 @@ td {
 
 <!--  hier werden die Daten gepflegt -->
 <script>
-const csvUrl = "literatur.csv";
-
-const tableBody = document.getElementById("tabellen-inhalt");
-
-fetch(csvUrl)
-  .then(res => res.text())
+fetch('daten.html')
+  .then(response => response.text())
   .then(data => {
-    const rows = data.split("\n");
-    rows.forEach((row, index) => {
-      if(index === 0) return; // Kopfzeile überspringen
-      const cols = row.split(";");
-      if(cols.length < 3) return;
-
-      const tr = document.createElement("tr");
-      cols.forEach(col => {
-        const td = document.createElement("td");
-        td.innerHTML = col.trim();
-        tr.appendChild(td);
-      });
-      tableBody.appendChild(tr);
-    });
+    document.getElementById('tabellen-inhalt').innerHTML = data;
   })
-  .catch(err => console.error(err));
+  .catch(error => {
+    document.getElementById('tabellen-inhalt').innerHTML =
+      "<tr><td colspan='3'>Fehler beim Laden der Daten</td></tr>";
+  });
 </script>
 
 </body>
