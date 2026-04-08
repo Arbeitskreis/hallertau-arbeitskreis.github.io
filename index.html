@@ -112,8 +112,7 @@ fetch(csvUrl)
     .then(response => response.text())
     .then(data => {
         const rows = data.split("\n");
-        const tableBody = document.getElementById("csv-table-body");
-
+        const tableBody = document.getElementById("tabellen-inhalt");
         rows.forEach((row, index) => {
             if(index === 0) return; // Kopfzeile überspringen (optional)
 
