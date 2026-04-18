@@ -74,6 +74,19 @@ tr:hover {
 td {
     word-break: break-word;
 }
+
+.table-container {
+    height: 500px;        /* Höhe anpassen wie du willst */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: #f2f2f2;
+    z-index: 2;
+}
 </style>
 
 </head>
@@ -89,8 +102,8 @@ td {
     <a href="https://e.pcloud.link/publink/show?code=kZlUSGZogIdW99JJvQPTFdJ88KHebgN7Guy" target="_blank">Sterbebilder</a>
     <a href="https://e.pcloud.link/publink/show?code=kZkUSGZbkNeDdBh2gVy6AFnhtoJcVlfvRc7" target="_blank">Dokumente</a>
 </div>
-</div>
 
+<div class="table-container">
 <table>
     <thead>
         <tr>
@@ -104,6 +117,7 @@ td {
         <!-- Hier wird die Tabelle geladen -->
     </tbody>
 </table>
+</div>
 
 <!--  hier werden die Daten gepflegt -->
 <script>
